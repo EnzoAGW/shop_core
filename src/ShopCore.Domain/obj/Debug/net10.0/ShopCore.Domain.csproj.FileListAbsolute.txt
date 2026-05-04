@@ -1,0 +1,11 @@
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\bin\Debug\net10.0\ShopCore.Domain.deps.json
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\bin\Debug\net10.0\ShopCore.Domain.dll
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\bin\Debug\net10.0\ShopCore.Domain.pdb
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.AssemblyInfoInputs.cache
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.AssemblyInfo.cs
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.dll
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\refint\ShopCore.Domain.dll
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.pdb
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ref\ShopCore.Domain.dll

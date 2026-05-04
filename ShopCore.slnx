@@ -1,0 +1,8 @@
+<Solution>
+  <Folder Name="/src/">
+    <Project Path="src/ShopCore.Api/ShopCore.Api.csproj" />
+    <Project Path="src/ShopCore.Application/ShopCore.Application.csproj" />
+    <Project Path="src/ShopCore.Domain/ShopCore.Domain.csproj" />
+    <Project Path="src/ShopCore.Infrastructure/ShopCore.Infrastructure.csproj" />
+  </Folder>
+</Solution>
