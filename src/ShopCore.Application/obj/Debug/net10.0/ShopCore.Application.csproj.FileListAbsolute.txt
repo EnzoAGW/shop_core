@@ -13,3 +13,4 @@ C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Application\obj\Debug\
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Application\obj\Debug\net10.0\refint\ShopCore.Application.dll
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Application\obj\Debug\net10.0\ShopCore.Application.pdb
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Application\obj\Debug\net10.0\ref\ShopCore.Application.dll
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Application\obj\Debug\net10.0\ShopCore.Application.sourcelink.json

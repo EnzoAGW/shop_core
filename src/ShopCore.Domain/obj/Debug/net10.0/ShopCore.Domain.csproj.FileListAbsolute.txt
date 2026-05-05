@@ -9,3 +9,4 @@ C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\refint\ShopCore.Domain.dll
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.pdb
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ref\ShopCore.Domain.dll
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Domain\obj\Debug\net10.0\ShopCore.Domain.sourcelink.json

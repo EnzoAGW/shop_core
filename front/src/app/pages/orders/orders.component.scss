@@ -1,0 +1,130 @@
+$brand-primary: #2B4584;
+
+.orders-container {
+  max-width: 820px;
+  margin: 32px auto;
+  padding: 0 24px;
+
+  @media (max-width: 599px) {
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+}
+
+.orders-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $brand-primary;
+
+    @media (max-width: 399px) {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+mat-panel-description {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  row-gap: 4px;
+}
+
+.status-chip {
+  padding: 3px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+  background: #eeeeee;
+  color: #555;
+  white-space: nowrap;
+
+  &[data-status="Pending"]    { background: #fff8e1; color: #f57f17; }
+  &[data-status="Processing"] { background: #e3f2fd; color: #1565c0; }
+  &[data-status="Shipped"]    { background: #e8f5e9; color: #2e7d32; }
+  &[data-status="Delivered"]  { background: #c8e6c9; color: #1b5e20; }
+  &[data-status="Cancelled"]  { background: #ffebee; color: #c62828; }
+}
+
+.order-total {
+  font-weight: 700;
+  color: $brand-primary;
+  font-size: 1rem;
+  white-space: nowrap;
+}
+
+.order-date {
+  font-size: 0.82rem;
+  color: #999;
+  margin-left: auto;
+  white-space: nowrap;
+
+  @media (max-width: 499px) {
+    margin-left: 0;
+    width: 100%;
+  }
+}
+
+.order-items {
+  padding: 4px 0;
+}
+
+.item-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #f5f5f5;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  @media (max-width: 399px) {
+    flex-direction: column;
+    gap: 2px;
+  }
+}
+
+.processed-at {
+  font-size: 0.78rem;
+  color: #bbb;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.spinner-wrap {
+  display: flex;
+  justify-content: center;
+  padding: 80px 0;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 80px 0;
+
+  mat-icon {
+    font-size: 64px;
+    width: 64px;
+    height: 64px;
+    color: #ddd;
+    margin-bottom: 16px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #999;
+    margin-bottom: 24px;
+  }
+}

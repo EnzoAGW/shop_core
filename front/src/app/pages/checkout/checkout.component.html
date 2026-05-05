@@ -1,0 +1,60 @@
+<div class="checkout-container">
+  @if (placedOrder(); as order) {
+    <div class="success-state">
+      <mat-icon class="success-icon">check_circle</mat-icon>
+      <h2>Order Placed!</h2>
+      <p>Order <strong>#{{ order.id }}</strong> was received and is being processed.</p>
+      <p class="total-line">Total: <strong>\${{ order.total | number:'1.2-2' }}</strong></p>
+      <div class="success-actions">
+        <button mat-flat-button color="primary" (click)="goToOrders()">View My Orders</button>
+        <button mat-button (click)="continueShopping()">Continue Shopping</button>
+      </div>
+    </div>
+  } @else {
+    <h1>Order Summary</h1>
+
+    <mat-card class="order-summary">
+      <mat-card-content>
+        @for (item of items(); track item.product.id) {
+          <div class="summary-row">
+            <span>{{ item.product.name }} × {{ item.quantity }}</span>
+            <span>\${{ (item.product.price * item.quantity) | number:'1.2-2' }}</span>
+          </div>
+        }
+        <mat-divider />
+        <div class="summary-row total-row">
+          <strong>Total</strong>
+          <strong>\${{ total() | number:'1.2-2' }}</strong>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    <mat-card class="payment-card">
+      <mat-card-header>
+        <mat-card-title>Payment</mat-card-title>
+        <mat-card-subtitle>Mock checkout — payment is simulated</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <div class="mock-card-info">
+          <mat-icon>credit_card</mat-icon>
+          <span>**** **** **** 4242 — Visa (test)</span>
+        </div>
+      </mat-card-content>
+    </mat-card>
+
+    @if (error()) {
+      <p class="error-msg">{{ error() }}</p>
+    }
+
+    <div class="checkout-actions">
+      <button mat-button (click)="continueShopping()">Back to Cart</button>
+      <button mat-flat-button color="primary" (click)="placeOrder()" [disabled]="loading() || items().length === 0">
+        @if (loading()) {
+          <mat-spinner diameter="20" />
+        } @else {
+          Place Order
+        }
+      </button>
+    </div>
+  }
+</div>

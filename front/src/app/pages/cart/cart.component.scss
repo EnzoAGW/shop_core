@@ -1,0 +1,117 @@
+$brand-primary: #2B4584;
+
+.cart-container {
+  max-width: 900px;
+  margin: 32px auto;
+  padding: 0 24px;
+
+  @media (max-width: 599px) {
+    margin: 16px auto;
+    padding: 0 12px;
+  }
+}
+
+.cart-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 28px;
+
+  h1 {
+    margin: 0;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: $brand-primary;
+  }
+
+  @media (max-width: 399px) {
+    gap: 8px;
+
+    h1 { font-size: 1.25rem; }
+  }
+}
+
+// Scrollable table wrapper on mobile
+.table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 8px;
+}
+
+.cart-table {
+  width: 100%;
+  min-width: 520px;
+}
+
+.product-cell {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.thumb {
+  width: 56px;
+  height: 56px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,.1);
+  flex-shrink: 0;
+}
+
+.qty-controls {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #f5f5f5;
+  border-radius: 24px;
+  padding: 2px 4px;
+}
+
+.cart-footer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 24px;
+  margin-top: 28px;
+  padding: 20px 0;
+  border-top: 2px solid #f0f0f0;
+
+  @media (max-width: 499px) {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 12px;
+
+    button {
+      width: 100%;
+    }
+  }
+}
+
+.total {
+  font-size: 1.3rem;
+  font-weight: 600;
+
+  strong {
+    color: $brand-primary;
+    font-size: 1.5rem;
+  }
+}
+
+.empty-cart {
+  text-align: center;
+  padding: 80px 0;
+
+  .empty-icon {
+    font-size: 72px;
+    width: 72px;
+    height: 72px;
+    margin-bottom: 16px;
+    color: #ddd;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: #999;
+    margin-bottom: 28px;
+  }
+}
