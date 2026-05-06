@@ -163,6 +163,7 @@ C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ShopCore.Api.csproj.CoreCompileInputs.cache
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ShopCore.Api.MvcApplicationPartsAssemblyInfo.cs
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ShopCore.Api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ShopCore.Api.sourcelink.json
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\rjimswa.dswa.cache.json
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\rjsmrazor.dswa.cache.json
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\rjsmcshtml.dswa.cache.json
@@ -178,4 +179,3 @@ C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ShopCore.Api.pdb
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ShopCore.Api.genruntimeconfig.cache
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ref\ShopCore.Api.dll
-C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Api\obj\Debug\net10.0\ShopCore.Api.sourcelink.json

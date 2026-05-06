@@ -10,6 +10,8 @@ public class Product
     public string ImageUrl { get; set; } = string.Empty;
     public int CategoryId { get; set; }
     public Category Category { get; set; } = null!;
+    public int? StoreId { get; set; }
+    public Store? Store { get; set; }
     public bool IsActive { get; set; } = true;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 }

@@ -11,10 +11,10 @@ C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Deb
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.AssemblyInfoInputs.cache
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.AssemblyInfo.cs
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.sourcelink.json
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.6C2405EE.Up2Date
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.dll
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\refint\ShopCore.Infrastructure.dll
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.pdb
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.genruntimeconfig.cache
 C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ref\ShopCore.Infrastructure.dll
-C:\Users\Asus\Documents\last_dance\shop-core\src\ShopCore.Infrastructure\obj\Debug\net10.0\ShopCore.Infrastructure.sourcelink.json

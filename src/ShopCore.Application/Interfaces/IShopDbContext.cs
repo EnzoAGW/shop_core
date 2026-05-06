@@ -9,5 +9,6 @@ public interface IShopDbContext
     DbSet<Category> Categories { get; }
     DbSet<Order> Orders { get; }
     DbSet<OrderItem> OrderItems { get; }
+    DbSet<Store> Stores { get; }
     Task<int> SaveChangesAsync(CancellationToken cancellationToken = default);
 }
