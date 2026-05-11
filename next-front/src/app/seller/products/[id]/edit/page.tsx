@@ -23,6 +23,7 @@ function EditProductContent({ productId }: { productId: number }) {
   const router = useRouter();
   const [fetching, setFetching] = useState(true);
   const [toast, setToast] = useState('');
+  const [notFound, setNotFound] = useState(false);
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -33,8 +34,12 @@ function EditProductContent({ productId }: { productId: number }) {
     getSellerProducts()
       .then((list) => {
         const product = list.find((p) => p.id === productId);
-        if (product) reset({ name: product.name, description: product.description, price: product.price, stock: product.stock, imageUrl: product.imageUrl ?? '' });
-        else router.replace('/seller');
+        if (product) {
+          reset({ name: product.name, description: product.description, price: product.price, stock: product.stock, imageUrl: product.imageUrl ?? '' });
+        } else {
+          setNotFound(true);
+          setTimeout(() => router.replace('/seller'), 2000);
+        }
       })
       .finally(() => setFetching(false));
   }, [productId, reset, router]);
@@ -42,13 +47,21 @@ function EditProductContent({ productId }: { productId: number }) {
   const onSubmit = async (data: FormData) => {
     await updateProduct(productId, { ...data, imageUrl: data.imageUrl || undefined });
     setToast('Product updated!');
-    setTimeout(() => router.push('/seller'), 1000);
+    setTimeout(() => router.push('/seller'), 1800);
   };
 
   if (fetching) {
     return (
       <div className="flex justify-center py-20">
         <div className="w-10 h-10 border-4 border-brand border-t-transparent rounded-full animate-spin" />
+      </div>
+    );
+  }
+
+  if (notFound) {
+    return (
+      <div className="max-w-lg mx-auto px-4 py-20 text-center">
+        <p className="text-gray-500 text-sm">Product not found. Redirecting to dashboard...</p>
       </div>
     );
   }
@@ -68,13 +81,14 @@ function EditProductContent({ productId }: { productId: number }) {
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Name</label>
-            <input {...register('name')} className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
+            <input {...register('name')} placeholder="Product name"
+              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
             {errors.name && <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>}
           </div>
 
           <div>
             <label className="block text-sm font-medium text-gray-700 mb-1">Description</label>
-            <textarea {...register('description')} rows={3}
+            <textarea {...register('description')} rows={3} placeholder="Describe the product..."
               className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand resize-none" />
             {errors.description && <p className="text-red-500 text-xs mt-1">{errors.description.message}</p>}
           </div>
@@ -82,13 +96,13 @@ function EditProductContent({ productId }: { productId: number }) {
           <div className="grid grid-cols-2 gap-3">
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Price ($)</label>
-              <input {...register('price')} type="number" step="0.01"
+              <input {...register('price')} type="number" step="0.01" placeholder="0.00"
                 className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               {errors.price && <p className="text-red-500 text-xs mt-1">{errors.price.message}</p>}
             </div>
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Stock</label>
-              <input {...register('stock')} type="number"
+              <input {...register('stock')} type="number" placeholder="0"
                 className="w-full px-3 py-2.5 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-brand" />
               {errors.stock && <p className="text-red-500 text-xs mt-1">{errors.stock.message}</p>}
             </div>

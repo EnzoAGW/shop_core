@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { ArrowLeft, CreditCard, CheckCircle, Loader2, ShoppingBag } from 'lucide-react';
@@ -19,6 +19,10 @@ function CheckoutContent() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [order, setOrder] = useState<Order | null>(null);
+
+  useEffect(() => {
+    if (items.length === 0 && !order) router.replace('/cart');
+  }, [items.length, order, router]);
 
   const handlePlaceOrder = async () => {
     if (items.length === 0) return;
@@ -55,6 +59,8 @@ function CheckoutContent() {
       </main>
     );
   }
+
+  if (items.length === 0) return null;
 
   return (
     <main className="max-w-2xl mx-auto px-4 sm:px-6 py-6">
@@ -96,7 +102,7 @@ function CheckoutContent() {
             <CreditCard size={20} className="text-gray-400" />
             <div>
               <p className="text-sm font-medium text-gray-700">**** **** **** 4242</p>
-              <p className="text-xs text-gray-400">Visa — Mock payment</p>
+              <p className="text-xs text-gray-400">Sandbox — Simulated payment</p>
             </div>
           </div>
         </div>
@@ -105,7 +111,7 @@ function CheckoutContent() {
           <Link href="/cart" className="border border-gray-300 text-gray-700 px-5 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors text-center">
             Back to Cart
           </Link>
-          <button onClick={handlePlaceOrder} disabled={loading || items.length === 0}
+          <button onClick={handlePlaceOrder} disabled={loading}
             className="gradient-bg text-white px-6 py-2.5 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity disabled:opacity-60 flex items-center justify-center gap-2">
             {loading ? <><Loader2 size={16} className="animate-spin" /> Placing order...</> : 'Place Order'}
           </button>

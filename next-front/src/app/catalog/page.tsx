@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import Image from 'next/image';
-import { Search, SlidersHorizontal, ShoppingCart, PackageSearch } from 'lucide-react';
+import { Search, SlidersHorizontal, ShoppingCart, PackageSearch, AlertTriangle } from 'lucide-react';
 import { useCartStore } from '@/store/cart.store';
 import { getProducts, getCategories } from '@/services/product.service';
 import type { Product, Category } from '@/models';
@@ -16,20 +16,28 @@ function CatalogContent() {
   const [search, setSearch] = useState('');
   const [categoryId, setCategoryId] = useState<number | ''>('');
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [toast, setToast] = useState('');
   const add = useCartStore((s) => s.add);
 
   const load = useCallback(async () => {
     setLoading(true);
+    setError('');
     try {
       const data = await getProducts(categoryId || undefined, search);
       setProducts(data);
+    } catch {
+      setError('Failed to load products. Please try again.');
     } finally {
       setLoading(false);
     }
   }, [search, categoryId]);
 
-  useEffect(() => { getCategories().then(setCategories); }, []);
+  useEffect(() => {
+    getCategories()
+      .then(setCategories)
+      .catch(() => {});
+  }, []);
 
   useEffect(() => {
     const t = setTimeout(load, 300);
@@ -65,11 +73,27 @@ function CatalogContent() {
           <div className="flex justify-center py-20">
             <div className="w-10 h-10 border-4 border-brand border-t-transparent rounded-full animate-spin" />
           </div>
+        ) : error ? (
+          <div className="flex flex-col items-center py-20 text-center">
+            <AlertTriangle size={40} className="text-red-400 mb-3 opacity-80" />
+            <p className="text-base font-medium text-gray-700 mb-1">Could not load products</p>
+            <p className="text-sm text-gray-400 mb-5">{error}</p>
+            <button onClick={load}
+              className="gradient-bg text-white px-5 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+              Try again
+            </button>
+          </div>
         ) : products.length === 0 ? (
           <div className="flex flex-col items-center py-20 text-gray-400">
             <PackageSearch size={64} className="mb-4 opacity-50" />
             <p className="text-lg font-medium">No products found</p>
             <p className="text-sm">Try adjusting your search or filter.</p>
+            {(search || categoryId) && (
+              <button onClick={() => { setSearch(''); setCategoryId(''); }}
+                className="mt-4 text-brand text-sm font-medium hover:underline">
+                Clear filters
+              </button>
+            )}
           </div>
         ) : (
           <>

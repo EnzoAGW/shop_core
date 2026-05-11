@@ -1,8 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
-import { ArrowLeft, Receipt, ChevronDown, ChevronUp, PackageOpen } from 'lucide-react';
+import { ArrowLeft, Receipt, ChevronDown, ChevronUp, PackageOpen, AlertTriangle } from 'lucide-react';
 import { getOrders } from '@/services/order.service';
 import type { Order, OrderStatus } from '@/models';
 import AuthGuard from '@/components/AuthGuard';
@@ -20,11 +20,19 @@ const STATUS_STYLES: Record<OrderStatus, string> = {
 function OrdersContent() {
   const [orders, setOrders] = useState<Order[]>([]);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
   const [expanded, setExpanded] = useState<number | null>(null);
 
-  useEffect(() => {
-    getOrders().then(setOrders).finally(() => setLoading(false));
+  const load = useCallback(() => {
+    setLoading(true);
+    setError('');
+    getOrders()
+      .then(setOrders)
+      .catch(() => setError('Failed to load orders. Please try again.'))
+      .finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => { load(); }, [load]);
 
   return (
     <main className="max-w-3xl mx-auto px-4 sm:px-6 py-6">
@@ -40,6 +48,16 @@ function OrdersContent() {
       {loading ? (
         <div className="flex justify-center py-20">
           <div className="w-10 h-10 border-4 border-brand border-t-transparent rounded-full animate-spin" />
+        </div>
+      ) : error ? (
+        <div className="bg-white rounded-xl shadow-sm p-12 flex flex-col items-center text-center">
+          <AlertTriangle size={40} className="text-red-400 mb-3 opacity-80" />
+          <p className="font-medium text-gray-700 mb-1">Could not load your orders</p>
+          <p className="text-sm text-gray-400 mb-5">{error}</p>
+          <button onClick={load}
+            className="gradient-bg text-white px-5 py-2 rounded-lg text-sm font-medium hover:opacity-90 transition-opacity">
+            Try again
+          </button>
         </div>
       ) : orders.length === 0 ? (
         <div className="bg-white rounded-xl shadow-sm p-16 flex flex-col items-center text-gray-400">
@@ -69,7 +87,9 @@ function OrdersContent() {
               {expanded === order.id && (
                 <div className="border-t border-gray-100 px-5 py-4">
                   <div className="divide-y divide-gray-50 mb-3">
-                    {order.items.map((item, i) => (
+                    {order.items.length === 0 ? (
+                      <p className="text-sm text-gray-400 py-2">No items in this order.</p>
+                    ) : order.items.map((item, i) => (
                       <div key={i} className="flex justify-between py-2 text-sm">
                         <span className="text-gray-700">{item.productName} <span className="text-gray-400">× {item.quantity}</span></span>
                         <span className="font-medium">{formatCurrency(item.subtotal)}</span>

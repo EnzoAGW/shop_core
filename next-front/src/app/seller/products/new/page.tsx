@@ -27,7 +27,7 @@ function ProductFormContent() {
   const [categories, setCategories] = useState<Category[]>([]);
   const [toast, setToast] = useState('');
 
-  useEffect(() => { getCategories().then(setCategories); }, []);
+  useEffect(() => { getCategories().then(setCategories).catch(() => {}); }, []);
 
   const { register, handleSubmit, formState: { errors, isSubmitting } } = useForm<FormData>({
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -37,7 +37,7 @@ function ProductFormContent() {
   const onSubmit = async (data: FormData) => {
     await createProduct({ ...data, imageUrl: data.imageUrl || undefined });
     setToast('Product added!');
-    setTimeout(() => router.push('/seller'), 1000);
+    setTimeout(() => router.push('/seller'), 1800);
   };
 
   return (

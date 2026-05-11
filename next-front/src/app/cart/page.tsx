@@ -65,13 +65,13 @@ function CartContent() {
                       <td className="px-4 py-3">
                         <div className="flex items-center justify-center gap-2">
                           <button onClick={() => updateQuantity(product.id, quantity - 1)}
-                            className="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                            <Minus size={12} />
+                            className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
+                            <Minus size={14} />
                           </button>
                           <span className="w-6 text-center text-sm font-medium">{quantity}</span>
                           <button onClick={() => updateQuantity(product.id, quantity + 1)}
-                            className="w-7 h-7 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
-                            <Plus size={12} />
+                            className="w-9 h-9 rounded-full border border-gray-300 flex items-center justify-center hover:bg-gray-100 transition-colors">
+                            <Plus size={14} />
                           </button>
                         </div>
                       </td>

@@ -22,6 +22,7 @@ function StoreFormContent() {
   const [isEdit, setIsEdit] = useState(false);
   const [fetching, setFetching] = useState(true);
   const [toast, setToast] = useState('');
+  const [error, setError] = useState('');
 
   const { register, handleSubmit, reset, formState: { errors, isSubmitting } } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -30,7 +31,7 @@ function StoreFormContent() {
   useEffect(() => {
     getStore()
       .then((store) => { setIsEdit(true); reset({ name: store.name, description: store.description, logoUrl: store.logoUrl ?? '' }); })
-      .catch(() => {})
+      .catch((err) => { if (err?.response?.status !== 404) setError('Failed to load store data. Please refresh.'); })
       .finally(() => setFetching(false));
   }, [reset]);
 
@@ -39,7 +40,7 @@ function StoreFormContent() {
     if (isEdit) await updateStore(dto);
     else await createStore(dto);
     setToast(isEdit ? 'Store updated!' : 'Store created!');
-    setTimeout(() => router.push('/seller'), 1000);
+    setTimeout(() => router.push('/seller'), 1800);
   };
 
   if (fetching) {
@@ -60,6 +61,10 @@ function StoreFormContent() {
             {isEdit ? 'Update your store details.' : 'Set up your store to start selling products.'}
           </p>
         </div>
+
+        {error && (
+          <div className="bg-red-50 border border-red-200 text-red-600 rounded-lg px-4 py-3 text-sm mb-4 text-center">{error}</div>
+        )}
 
         {toast && (
           <div className="bg-green-50 border border-green-200 text-green-700 rounded-lg px-4 py-3 text-sm mb-4 text-center">{toast}</div>
